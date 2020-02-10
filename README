@@ -1,1 +1,39 @@
 
+This assignment took a little under half a day. The rationale for using a 
+database was that I have spent the last year working with databases and it 
+seemed like a logical thing to do at the time. My rationale for using C was 
+that I wanted to discover the GNU library for connecting to databases. There
+is a lot to do here, there wasn't a single test written but I can't afford to
+spend more than a half a day on this assignment.
+
+On a positive note, this solution is capable of handling any size puzzle 
+regardless of available ram. A second positive note is that once the puzzle
+possibilities are calculated future queries are done in logn time. A third
+positive note is that it can easily be multi-threaded, greatly improving
+performance on a large system.
+
+I have included a docker image of this solution due to its complexity on
+different systems.
+
+The following is required for Fedora:
+
+dnf install gcc
+dnf install intltool
+dnf install itstool
+dnf install glib2
+dnf install libxml2
+dnf install glib2-devel
+dnf install libxml2-devel
+dnf install openssl-devel
+dnf install make
+dnf install sqlite
+dnf install sqlite-devel
+dnf install libgee
+dnf install libgee-devel
+
+wget https://ftp.gnome.org/pub/GNOME/sources/libgda/5.2/libgda-5.2.8.tar.xz
+
+tar -xvJf libgda-5.2.8.tar.xz
+
+./configure --prefix=/usr --sysconfdir=/etc --enable-system-sqlite --enable-binreloc
+
